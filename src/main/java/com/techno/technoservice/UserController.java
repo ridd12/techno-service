@@ -16,10 +16,4 @@ public class UserController {
     public Boolean signUp(@RequestParam String userEmail,@RequestParam String password){
         return userService.signup(userEmail,password);
     }
-
-    @GetMapping
-    public String home(){
-        return "fromBacked";
-    }
-
 }
