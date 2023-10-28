@@ -1,19 +1,19 @@
 package com.techno.technoservice;
 
+import com.techno.technoservice.entity.LoginInput;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 
 @RestController
+@CrossOrigin
 public class UserController {
 
     @Autowired
     UserService userService;
 
     @PostMapping(value = "sign-up")
-    public Boolean signUp(@RequestParam String userEmail,@RequestParam String password){
-        return userService.signup(userEmail,password);
+    public Boolean signUp(@RequestBody LoginInput loginInput){
+        return userService.signup(loginInput.getUserEmail(),loginInput.getPassword());
     }
 }
