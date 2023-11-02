@@ -22,10 +22,10 @@ public class UserController {
     }
 
     @PostMapping(consumes = "application/json")
-    public String login(@RequestBody Map<String,String> map){
+    public Boolean login(@RequestBody Map<String,String> map){
         log.info("In Controller!");
         log.info(map.toString());
-        return "Hi there";
+        return userService.signup(map.get("userEmail"),map.get("password"));
     }
 
     @GetMapping
