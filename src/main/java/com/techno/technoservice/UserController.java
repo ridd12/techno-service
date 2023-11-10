@@ -23,7 +23,7 @@ public class UserController {
 
     @PostMapping(consumes = "application/json")
     public Boolean login(@RequestBody Map<String,String> map){
-        log.info("In Controller!");
+        log.info("In Controller !");
         log.info(map.toString());
         return userService.signup(map.get("userEmail"),map.get("password"));
     }
